@@ -8,9 +8,9 @@
 
 /**
  * Creates a connection to the DB
- * @return PDO
+ * @return PDO|null
  */
-function openDBConnection(): PDO
+function openDBConnection(): PDO|null
 {
     $tempDBConnection = null;
 
@@ -27,7 +27,7 @@ function openDBConnection(): PDO
     try {
         $tempDBConnection = new PDO($dsn, $user, $usrPass);
     } catch (PDOException $exception) {
-        echo '<h3>Connection failed: ' . $exception. '</h3>';
+        echo '<h3>Connection failed: ' . $exception . '</h3>';
     }
     return $tempDBConnection;
 }
@@ -39,15 +39,14 @@ function openDBConnection(): PDO
  */
 function executeQuerySelect($query): bool|array|null
 {
-    $queryResult = null;
-
     $dbConnection = openDBConnection();
 
-    if ($dbConnection != null) {
-        $statement = $dbConnection->prepare($query);
-        $statement->execute();
-        $queryResult = $statement->fetchAll();
-    }
+    if ($dbConnection == null) return null;
+
+    $statement = $dbConnection->prepare($query);
+    $statement->execute();
+    $queryResult = $statement->fetchAll();
+
     $dbConnection = null;
 
     return $queryResult;
