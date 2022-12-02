@@ -20,7 +20,7 @@ if (isset($_GET['action'])) {
         case 'login':
             login($_POST);
             break;
-        case 'displayArticle':
+        case 'product':
             displayArticles();
             break;
         default:

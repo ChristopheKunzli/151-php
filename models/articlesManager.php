@@ -12,7 +12,7 @@
  */
 function getArticles(): array|null
 {
-    $query = "SELECT code, brand, model, snowsLength, price, qtyAvailable, photo, active FROM snows";
+    $query = "SELECT code, brand, model, snowLength, dailyPrice, qtyAvailable, photo, 'active' FROM snows";
 
     require_once 'models/dbConnector.php';
 
