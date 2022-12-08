@@ -27,7 +27,7 @@ function openDBConnection(): PDO|null
     try {
         $tempDBConnection = new PDO($dsn, $user, $usrPass);
     } catch (PDOException $exception) {
-        echo '<h3>Connection failed: ' . $exception . '</h3>';
+        echo '<h3>Connection failed: ' . $exception->getMessage() . '</h3>';
     }
     return $tempDBConnection;
 }

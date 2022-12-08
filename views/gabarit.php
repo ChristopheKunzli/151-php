@@ -72,31 +72,15 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="../index.php?action=home">Home</a>
+								<a href="../index.php?action=home">Accueil</a>
 							</li>
 
 							<li>
-								<a href="../index.php?action=product">Shop</a>
-							</li>
-
-							<li class="sale-noti">
-								<a href="../index.php?action=product">Sale</a>
+								<a href="../index.php?action=product">Nos snows</a>
 							</li>
 
 							<li>
-								<a href="../index.php?action=cart">Features</a>
-							</li>
-
-							<li>
-								<a href="../index.php?action=blog">Blog</a>
-							</li>
-
-							<li>
-								<a href="../index.php?action=about">About</a>
-							</li>
-
-							<li>
-								<a href="../index.php?action=contact">Contact</a>
+								<a href="../index.php?action=contact">Login</a>
 							</li>
 						</ul>
 					</nav>
@@ -333,32 +317,16 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="../index.php?action=home">Home</a>
+						<a href="../index.php?action=home">Accueil</a>
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="../index.php?action=product">Shop</a>
+						<a href="../index.php?action=product">Nos snows</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="../index.php?action=product">Sale</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="../index.php?action=cart">Features</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="../index.php?action=blog">Blog</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="../index.php?action=about">About</a>
-					</li>
-
-					<li class="item-menu-mobile">
-						<a href="../index.php?action=contact">Contact</a>
+						<a href="../index.php?action=contact">Login</a>
 					</li>
 				</ul>
 			</nav>
