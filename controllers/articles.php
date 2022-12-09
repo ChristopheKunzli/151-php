@@ -24,6 +24,7 @@ function displayArticleDetail(): void
     try {
         require_once 'models/articlesManager.php';
         $article = getArticle($_GET["id"]);
+        $article = $article[0];
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes techniques pour afficher le produit" . $ex;
         echo "<h1>".$articleErrorMessage."</h1>";

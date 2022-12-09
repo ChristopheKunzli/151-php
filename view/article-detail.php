@@ -19,7 +19,7 @@ function console_log($output, $with_script_tags = true): void
     echo $js_code;
 }
 
-console_log($article[0]);
+console_log($article);
 
 ?>
 
@@ -31,21 +31,21 @@ console_log($article[0]);
                 <div class="wrap-slick3-dots"></div>
 
                 <div class="slick3">
-                    <?php echo '<div class="item-slick3" data-thumb="' . $article[0]["photo"] . '">' ?>
+                    <?php echo '<div class="item-slick3" data-thumb="' . $article["photo"] . '">' ?>
                     <div class="wrap-pic-w">
-                        <?php echo '<img src="' . $article[0]["photo"] . '" alt="IMG-PRODUCT">' ?>
+                        <?php echo '<img src="' . $article["photo"] . '" alt="IMG-PRODUCT">' ?>
                     </div>
                 </div>
 
-                <?php echo '<div class="item-slick3" data-thumb="' . $article[0]["photo"] . '">' ?>
+                <?php echo '<div class="item-slick3" data-thumb="' . $article["photo"] . '">' ?>
                 <div class="wrap-pic-w">
-                    <?php echo '<img src="' . $article[0]["photo"] . '" alt="IMG-PRODUCT">' ?>
+                    <?php echo '<img src="' . $article["photo"] . '" alt="IMG-PRODUCT">' ?>
                 </div>
             </div>
 
-            <?php echo '<div class="item-slick3" data-thumb="' . $article[0]["photo"] . '">' ?>
+            <?php echo '<div class="item-slick3" data-thumb="' . $article["photo"] . '">' ?>
             <div class="wrap-pic-w">
-                <?php echo '<img src="' . $article[0]["photo"] . '" alt="IMG-PRODUCT">' ?>
+                <?php echo '<img src="' . $article["photo"] . '" alt="IMG-PRODUCT">' ?>
             </div>
         </div>
     </div>
@@ -54,11 +54,11 @@ console_log($article[0]);
 
 <div class="w-size14 p-t-30 respon5">
     <h4 class="product-detail-name m-text16 p-b-13">
-        <?php echo $article[0]["code"]. " " . $article[0]["brand"] . " " . $article[0]["model"] ?>
+        <?php echo $article["code"]. " " . $article["brand"] . " " . $article["model"] ?>
     </h4>
 
     <span class="m-text17">
-					<?php echo "Prix: " . $article[0]["dailyPrice"] . ".-" ?>
+					<?php echo "Prix: " . $article["dailyPrice"] . ".-" ?>
 				</span>
 
 
@@ -72,7 +72,7 @@ console_log($article[0]);
 
         <div class="dropdown-content dis-none p-t-15 p-b-23">
             <p class="s-text8">
-                <?php echo $article[0]["description"] ?>
+                <?php echo $article["description"] ?>
             </p>
         </div>
     </div>
@@ -87,7 +87,7 @@ console_log($article[0]);
         <div class="dropdown-content dis-none p-t-15 p-b-23">
             <p class="s-text8">
                 <?php
-                echo "Disponibilité: " . $article[0]["qtyAvailable"];
+                echo "Nombre disponible: " . $article["qtyAvailable"];
                 ?>
             </p>
         </div>
