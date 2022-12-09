@@ -7,10 +7,10 @@
  */
 function home(): void
 {
-    require("views/home.php");
+    require("view/home.php");
 }
 
 function lost(): void
 {
-    require("views/lost.php");
+    require("view/lost.php");
 }

@@ -12,9 +12,16 @@
  */
 function getArticles(): array|null
 {
-    $query = "SELECT code, brand, model, snowLength, dailyPrice, qtyAvailable, photo, 'active' FROM snows";
+    $query = "SELECT id, code, brand, model, snowLength, dailyPrice, qtyAvailable, photo, 'active' FROM snows";
 
     require_once 'models/dbConnector.php';
 
+    return executeQuerySelect($query);
+}
+
+function getArticle($id): array|null
+{
+    $query = "SELECT * FROM snows WHERE id = ". $id;
+    require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }

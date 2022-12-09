@@ -81,7 +81,7 @@ ob_start();
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="/views/content/images/B101_banner.png" alt="IMG-BENNER">
+                        <img src="/view/content/images/B101_banner.png" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -93,7 +93,7 @@ ob_start();
 
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="/views/content/images/banner_P622.png" alt="IMG-BENNER">
+                        <img src="/view/content/images/banner_P622.png" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -107,7 +107,7 @@ ob_start();
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="/views/content/images/banner_R787.png" alt="IMG-BENNER">
+                        <img src="/view/content/images/banner_R787.png" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -119,7 +119,7 @@ ob_start();
 
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="/views/content/images/banner_K409.png" alt="IMG-BENNER">
+                        <img src="/view/content/images/banner_K409.png" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -133,7 +133,7 @@ ob_start();
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="/views/content/images/N100_banner.png" alt="IMG-BENNER">
+                        <img src="/view/content/images/N100_banner.png" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -145,7 +145,7 @@ ob_start();
 
                     <!-- block2 -->
                     <div class="block2 wrap-pic-w pos-relative m-b-30">
-                        <img src="/views/content/images/icons/bg-01.jpg" alt="IMG">
+                        <img src="/view/content/images/icons/bg-01.jpg" alt="IMG">
 
                         <div class="block2-content sizefull ab-t-l flex-col-c-m">
                             <h4 class="m-text4 t-center w-size3 p-b-8">
@@ -186,7 +186,7 @@ ob_start();
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="/views/content/images/banner_K409.png" alt="IMG-PRODUCT">
+                                <img src="/view/content/images/banner_K409.png" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -219,7 +219,7 @@ ob_start();
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="/views/content/images/item-03.jpg" alt="IMG-PRODUCT">
+                                <img src="/view/content/images/item-03.jpg" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -252,7 +252,7 @@ ob_start();
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="/views/content/images/item-05.jpg" alt="IMG-PRODUCT">
+                                <img src="/view/content/images/item-05.jpg" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -285,7 +285,7 @@ ob_start();
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="/views/content/images/item-07.jpg" alt="IMG-PRODUCT">
+                                <img src="/view/content/images/item-07.jpg" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -322,7 +322,7 @@ ob_start();
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="/views/content/images/item-02.jpg" alt="IMG-PRODUCT">
+                                <img src="/view/content/images/item-02.jpg" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -355,7 +355,7 @@ ob_start();
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="/views/content/images/item-03.jpg" alt="IMG-PRODUCT">
+                                <img src="/view/content/images/item-03.jpg" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -388,7 +388,7 @@ ob_start();
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="/views/content/images/item-05.jpg" alt="IMG-PRODUCT">
+                                <img src="/view/content/images/item-05.jpg" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -421,7 +421,7 @@ ob_start();
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="/views/content/images/item-07.jpg" alt="IMG-PRODUCT">
+                                <img src="/view/content/images/item-07.jpg" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

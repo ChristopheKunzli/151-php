@@ -7,7 +7,7 @@
  */
 
 
-function users () :void
+function users(): void
 {
-    require 'views/users.php';
+    require 'view/users.php';
 }

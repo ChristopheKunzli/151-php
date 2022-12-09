@@ -18,10 +18,16 @@ if (isset($_GET['action'])) {
             home();
             break;
         case 'login':
-            login($_POST);
+            login();
+            break;
+        case 'contact':
+            users();
             break;
         case 'product':
             displayArticles();
+            break;
+        case 'product-detail':
+            displayArticleDetail();
             break;
         default:
             lost();

@@ -14,6 +14,20 @@ function displayArticles(): void
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour afficher les produits" . $ex;
     } finally {
-        require("views/articles.php");
+        require("view/articles.php");
+    }
+}
+
+function displayArticleDetail(): void
+{
+    $article = null;
+    try {
+        require_once 'models/articlesManager.php';
+        $article = getArticle($_GET["id"]);
+    } catch (ModelDataBaseException $ex) {
+        $articleErrorMessage = "Nous rencontrons des problèmes techniques pour afficher le produit" . $ex;
+        echo "<h1>".$articleErrorMessage."</h1>";
+    } finally {
+        require("view/article-detail.php");
     }
 }
