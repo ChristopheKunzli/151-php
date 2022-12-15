@@ -35,6 +35,7 @@ if (isset($_GET['action'])) {
             break;
         case 'delete':
             delete();
+            management();
             break;
         default:
             lost();

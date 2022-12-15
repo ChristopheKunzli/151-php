@@ -32,14 +32,12 @@ function displayArticleDetail(): void
     }
 }
 
-function deleteArticle() : void
+function delete() : void
 {
     try {
         require_once 'models/articlesManager.php';
-
+        deleteArticle($_GET["id"]);
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour afficher les produits" . $ex;
-    } finally {
-        require("view/articles.php");
     }
 }

@@ -51,3 +51,15 @@ function executeQuerySelect($query): bool|array|null
 
     return $queryResult;
 }
+
+function executeQueryDelete($query): void
+{
+    $dbConnection = openDBConnection();
+
+    if ($dbConnection == null) return;
+
+    $statement = $dbConnection->prepare($query);
+    $statement->execute();
+
+    $dbConnection = null;
+}
