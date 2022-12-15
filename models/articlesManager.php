@@ -21,7 +21,12 @@ function getArticles(): array|null
 
 function getArticle($id): array|null
 {
-    $query = "SELECT * FROM snows WHERE id = ". $id;
+    $query = "SELECT * FROM snows WHERE id = " . $id;
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
+}
+
+function deleteArticle($id): void
+{
+
 }

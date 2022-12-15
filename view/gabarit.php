@@ -82,6 +82,9 @@
 							<li>
 								<a href="../index.php?action=contact">Login</a>
 							</li>
+							<li>
+								<a href="../index.php?action=gestion">Gestion</a>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -327,6 +330,10 @@
 
 					<li class="item-menu-mobile">
 						<a href="../index.php?action=contact">Login</a>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="../index.php?action=gestion">Gestion</a>
 					</li>
 				</ul>
 			</nav>

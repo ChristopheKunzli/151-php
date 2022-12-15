@@ -31,3 +31,15 @@ function displayArticleDetail(): void
         require("view/article-detail.php");
     }
 }
+
+function deleteArticle() : void
+{
+    try {
+        require_once 'models/articlesManager.php';
+
+    } catch (ModelDataBaseException $ex) {
+        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour afficher les produits" . $ex;
+    } finally {
+        require("view/articles.php");
+    }
+}
