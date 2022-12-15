@@ -11,3 +11,8 @@ function users(): void
 {
     require 'view/users.php';
 }
+
+function login(): void
+{
+
+}
