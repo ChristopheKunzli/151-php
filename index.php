@@ -7,6 +7,7 @@
 require 'controllers/navigation.php'; //home and error
 require 'controllers/users.php';
 require 'controllers/articles.php';
+require 'controllers/management.php';
 
 //===========================================================================//
 
@@ -28,6 +29,9 @@ if (isset($_GET['action'])) {
             break;
         case 'product-detail':
             displayArticleDetail();
+            break;
+        case 'gestion':
+            management();
             break;
         default:
             lost();
