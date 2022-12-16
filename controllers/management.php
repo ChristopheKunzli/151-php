@@ -39,7 +39,5 @@ function add($post): void
         addArticle($post);
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour supprimmr les produits" . $ex;
-    } finally {
-        require 'view/management.php';
     }
 }

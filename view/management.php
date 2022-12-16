@@ -42,7 +42,7 @@ ob_start();
                                             <th class="column-2">Longueur</th>
                                             <th class="column-2">Prix à l'unité</th>
                                             <th class="column-2">Quantité</th>
-                                            <th class="column-2"><a href="../index.php?action=articleAddItem"><button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                                            <th class="column-2"><a href="../index.php?action=add"><button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                                         Ajouter
                                                     </button></a></th>
                                         </tr>
@@ -68,7 +68,7 @@ ob_start();
                                                     <a href="../index.php?action=delete&id=<?=$article['id']; ?>" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                                         <img src="view/content/images/icons/bin2.png" alt="delete">
                                                         </button></a><br>
-                                                    <a href="../index.php?action=articleAddItem">
+                                                    <a href="../index.php?action=update&id=<?=$article['id'] ?>">
                                                         <button onclick="updateItem('<?=$article['code']; ?>')" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                                             <img src="view/content/images/icons/pencil2.png" alt="update">
                                                         </button></a>
