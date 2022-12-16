@@ -30,13 +30,13 @@ function delete(): void
 
 function add($post): void
 {
-    if(!isset($post["id"])){
+    if (!isset($post["code"])) {
         require 'view/addArticle.php';
         return;
     }
     try {
         require_once 'models/articlesManager.php';
-
+        addArticle($post);
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour supprimmr les produits" . $ex;
     } finally {
