@@ -38,6 +38,6 @@ function delete() : void
         require_once 'models/articlesManager.php';
         deleteArticle($_GET["id"]);
     } catch (ModelDataBaseException $ex) {
-        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour afficher les produits" . $ex;
+        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour supprimmr les produits" . $ex;
     }
 }

@@ -30,5 +30,5 @@ function deleteArticle($id): void
 {
     $query = "DELETE FROM snows WHERE id = " . $id;
     require_once 'models/dbConnector.php';
-    executeQueryDelete($query);
+    executeQueryDeleteOrInsert($query);
 }

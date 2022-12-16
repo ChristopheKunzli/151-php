@@ -52,7 +52,7 @@ function executeQuerySelect($query): bool|array|null
     return $queryResult;
 }
 
-function executeQueryDelete($query): void
+function executeQueryDeleteOrInsert($query): void
 {
     $dbConnection = openDBConnection();
 
