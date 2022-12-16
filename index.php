@@ -33,6 +33,9 @@ if (isset($_GET['action'])) {
         case 'gestion':
             management();
             break;
+        case 'articleAddItem':
+            add($_POST);
+            break;
         case 'delete':
             delete();
             management();

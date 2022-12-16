@@ -32,3 +32,10 @@ function deleteArticle($id): void
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
 }
+
+function addArticle($values): void
+{
+    $query = "INSERT INTO snows () VALUES ()";
+    require_once 'models/dbConnector.php';
+    executeQueryDeleteOrInsert($query);
+}

@@ -17,3 +17,29 @@ function management(): void
         require("view/management.php");
     }
 }
+
+function delete(): void
+{
+    try {
+        require_once 'models/articlesManager.php';
+        deleteArticle($_GET["id"]);
+    } catch (ModelDataBaseException $ex) {
+        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour supprimmr les produits" . $ex;
+    }
+}
+
+function add($post): void
+{
+    if(!isset($post["id"])){
+        require 'view/addArticle.php';
+        return;
+    }
+    try {
+        require_once 'models/articlesManager.php';
+
+    } catch (ModelDataBaseException $ex) {
+        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour supprimmr les produits" . $ex;
+    } finally {
+        require 'view/management.php';
+    }
+}
