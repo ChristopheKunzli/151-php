@@ -47,7 +47,8 @@ function addArticle($values): void
     //if(isset($values["photo"])){ }
 
     $query =
-        "INSERT INTO snows (code,brand,model,snowLength,qtyAvailable,description,dailyPrice,active) VALUES ('" . $code . "','" . $brand . "','" . $model . "','" . $length . "','" . $qty . "','" . $desc . "','" . $price . "','" . $active . "');";
+        "INSERT INTO snows (code,brand,model,snowLength,qtyAvailable,description,dailyPrice,active) " .
+        "VALUES ('" . $code . "','" . $brand . "','" . $model . "','" . $length . "','" . $qty . "','" . $desc . "','" . $price . "','" . $active . "');";
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
 }
