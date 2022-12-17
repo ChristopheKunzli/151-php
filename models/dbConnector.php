@@ -52,6 +52,11 @@ function executeQuerySelect($query): bool|array|null
     return $queryResult;
 }
 
+/**
+ * Execute insert and delete queries on DB5
+ * @param $query
+ * @return void
+ */
 function executeQueryDeleteOrInsert($query): void
 {
     $dbConnection = openDBConnection();

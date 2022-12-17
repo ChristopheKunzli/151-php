@@ -5,9 +5,15 @@
  * @author   Created by Christophe.KUNZLI
  * @version  09.12.2022
  */
-function getUsers() : array | null
+
+/**
+ * Fetches all users in the database
+ * @param $address
+ * @return array|null
+ */
+function getUser($address) : array | null
 {
-    $query = "SELECT userEmailAddress, userHashPsw, pseudo FROM users";
+    $query = "SELECT userEmailAddress, userHashPsw, pseudo FROM users WHERE userEmailAddress = '". $address. "'";
 
     require_once 'models/dbConnector.php';
 
