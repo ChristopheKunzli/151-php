@@ -11,6 +11,7 @@ ob_start();
 ?>
     <section id="addForm" class="w-75 centered">
         <h2 class="m-t-32 m-b-32">Nouvel article</h2>
+        <h3><?php if (isset($message)) echo $message; ?></h3>
         <form method="post" action="../index.php?action=add">
             <div class="bo4 of-hidden size15 m-b-20">
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="code" placeholder="Code" required>

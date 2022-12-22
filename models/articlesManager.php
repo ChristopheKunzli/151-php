@@ -26,6 +26,13 @@ function getArticle($id): array|null
     return executeQuerySelect($query);
 }
 
+function articleExists($code): bool
+{
+    $query = "SELECT code FROM snows WHERE code = '" . $code . "'";
+    require_once 'models/dbConnector.php';
+    return isset(executeQuerySelect($query)[0]);
+}
+
 function deleteArticle($id): void
 {
     $query = "DELETE FROM snows WHERE id = " . $id;

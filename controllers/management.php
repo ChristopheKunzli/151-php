@@ -36,8 +36,14 @@ function add($post): void
     }
     try {
         require_once 'models/articlesManager.php';
-        addArticle($post);
+        if (!articleExists($post["code"])) {
+            addArticle($post);
+        }
+        else {
+            $message = "Il exist déjà un article avec ce code";
+            require 'view/addArticle.php';
+        }
     } catch (ModelDataBaseException $ex) {
-        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour supprimmr les produits" . $ex;
+        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour ajouter le produit" . $ex;
     }
 }
