@@ -28,8 +28,14 @@ function delete(): void
     }
 }
 
-function add($post): void
+function add($post, $isEdit = false): void
 {
+    if ($isEdit) {
+        $article = getArticle($post["id"]);
+        require 'view/addArticle.php';
+        return;
+    }
+
     if (!isset($post["code"])) {
         require 'view/addArticle.php';
         return;
@@ -39,9 +45,9 @@ function add($post): void
         if (!articleExists($post["code"])) {
             addArticle($post);
             header('Location: ../index.php?action=gestion');
-        }
-        else {
+        } else {
             $message = "Il exist déjà un article avec ce code";
+            $article = $post;
             require 'view/addArticle.php';
             return;
         }

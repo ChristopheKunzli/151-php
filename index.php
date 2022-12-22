@@ -36,6 +36,10 @@ if (isset($_GET['action'])) {
         case 'add':
             add($_POST);
             break;
+        case 'edit':
+            $_POST["id"] = $_GET["id"];
+            add($_POST, true);
+            break;
         case 'delete':
             delete();
             management();
