@@ -38,10 +38,12 @@ function add($post): void
         require_once 'models/articlesManager.php';
         if (!articleExists($post["code"])) {
             addArticle($post);
+            header('Location: ../index.php?action=gestion');
         }
         else {
             $message = "Il exist déjà un article avec ce code";
             require 'view/addArticle.php';
+            return;
         }
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour ajouter le produit" . $ex;

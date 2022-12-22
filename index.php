@@ -35,7 +35,6 @@ if (isset($_GET['action'])) {
             break;
         case 'add':
             add($_POST);
-            management();
             break;
         case 'delete':
             delete();
