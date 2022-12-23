@@ -38,9 +38,9 @@ function update($post)
     }
 }
 
-function add($post, $isEdit = false): void
+function add($post, $files = null): void
 {
-    if ($isEdit) {
+    if (isset($post["isEdit"])) {
         require_once 'models/articlesManager.php';
         $article = getArticle($post["id"])[0];
         require 'view/addArticle.php';
@@ -54,7 +54,7 @@ function add($post, $isEdit = false): void
     try {
         require_once 'models/articlesManager.php';
         if (!articleExists($post["code"])) {
-            addArticle($post);
+            addArticle($post, $files);
             header('Location: ../index.php?action=gestion');
         } else {
             $message = "Il exist déjà un article avec ce code";

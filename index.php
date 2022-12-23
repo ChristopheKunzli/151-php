@@ -34,12 +34,12 @@ if (isset($_GET['action'])) {
             management();
             break;
         case 'add':
-            add($_POST);
+            add($_POST, $_FILES);
             break;
         case 'edit':
             $_POST["id"] = $_GET["id"];
             $_POST["isEdit"] = true;
-            add($_POST, true);
+            add($_POST);
             break;
         case 'update':
             update($_POST);

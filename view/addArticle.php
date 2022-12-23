@@ -8,28 +8,16 @@
 
 $title = "snows - ajout";
 
-function console_log($output, $with_script_tags = true): void
-{
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
-        ');';
-    if ($with_script_tags) {
-        $js_code = '<script>' . $js_code . '</script>';
-    }
-    echo $js_code;
-}
-
-console_log($article);
-
 ob_start();
 ?>
     <section id="addForm" class="w-75 centered">
         <h2 class="m-t-32 m-b-32">Nouvel article</h2>
         <h3><?php if (isset($message)) echo $message; ?></h3>
 
-        <?php if ($isEdit) : ?>
+        <?php if (isset($post["isEdit"])) : ?>
         <form method="post" action="../index.php?action=update">
         <?php else : ?>
-        <form method="post" action="../index.php?action=add">
+        <form method="post" action="../index.php?action=add" enctype="multipart/form-data">
         <?php endif; ?>
             <input type="hidden" name="id" value="<?php if (isset($article['id'])) echo $article['id']; ?>">
             <div class="bo4 of-hidden size15 m-b-20">
@@ -81,7 +69,7 @@ ob_start();
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="file" name="photo">
             </div>
 
-            <input type="submit" value="Ajouter"
+            <input type="submit" value="Ajouter" name="submit"
                    class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4 w-size12"><br>
             <input type="reset" value="Annuler" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4 w-size12">
 
