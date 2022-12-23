@@ -7,53 +7,70 @@
  */
 
 $title = "snows - ajout";
+
 ob_start();
 ?>
     <section id="addForm" class="w-75 centered">
         <h2 class="m-t-32 m-b-32">Nouvel article</h2>
-        <form method="post" action="../index.php?action=add">
+        <h3><?php if (isset($message)) echo $message; ?></h3>
+
+        <?php if (isset($post["isEdit"])) : ?>
+        <form method="post" action="../index.php?action=update">
+        <?php else : ?>
+        <form method="post" action="../index.php?action=add" enctype="multipart/form-data">
+        <?php endif; ?>
+            <input type="hidden" name="id" value="<?php if (isset($article['id'])) echo $article['id']; ?>">
             <div class="bo4 of-hidden size15 m-b-20">
-                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="code" placeholder="Code" required>
+                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="code" placeholder="Code"
+                       value="<?php if (isset($article['code'])) echo $article['code']; ?>" required>
             </div>
 
             <div class="bo4 of-hidden size15 m-b-20">
-                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="brand" placeholder="Marque" required>
+                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="brand" placeholder="Marque"
+                       value="<?php if (isset($article['brand'])) echo $article['brand']; ?>" required>
             </div>
 
             <div class="bo4 of-hidden size15 m-b-20">
-                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="model" placeholder="Modèle" required>
+                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="model" placeholder="Modèle"
+                       value="<?php if (isset($article['model'])) echo $article['model']; ?>" required>
             </div>
 
             <div class="bo4 of-hidden size15 m-b-20">
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="snowLength"
-                       placeholder="Longueur en cm" required>
+                       placeholder="Longueur en cm"
+                       value="<?php if (isset($article['snowLength'])) echo $article['snowLength']; ?>" required>
             </div>
 
             <div class="bo4 of-hidden size15 m-b-20">
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="qtyAvailable"
-                       placeholder="Quantité disponible" required>
+                       placeholder="Quantité disponible"
+                       value="<?php if (isset($article['qtyAvailable'])) echo $article['qtyAvailable']; ?>" required>
             </div>
 
             <div class="bo4 of-hidden size15 m-b-20">
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="description"
-                       placeholder="Description" required>
+                       placeholder="Description"
+                       value="<?php if (isset($article['description'])) echo $article['description']; ?>" required>
             </div>
 
             <div class="bo4 of-hidden size15 m-b-20">
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="dailyPrice"
-                       placeholder="Prix journalier" required>
+                       placeholder="Prix journalier"
+                       value="<?php if (isset($article['dailyPrice'])) echo $article['dailyPrice']; ?>" required>
             </div>
 
             <div class="bo4 of-hidden size15 m-b-20">
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="number" min="0" max="1" name="active"
-                       placeholder="Actif " required>
+                       placeholder="Actif " value="<?php if (isset($article['active'])) echo $article['active']; ?>"
+                       required>
             </div>
 
             <div class="bo4 of-hidden size15 m-b-20">
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="file" name="photo">
             </div>
 
-            <input type="submit" value="Ajouter" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4 w-size12"><br>
+            <input type="submit" value="Ajouter" name="submit"
+                   class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4 w-size12"><br>
             <input type="reset" value="Annuler" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4 w-size12">
 
         </form>

@@ -19,6 +19,13 @@ function getArticles(): array|null
     return executeQuerySelect($query);
 }
 
+function getActiveArticles(): array|null
+{
+    $query = "SELECT id, code, brand, model, snowLength, dailyPrice, qtyAvailable, photo, 'active' FROM snows WHERE active = 1";
+    require_once 'models/dbConnector.php';
+    return executeQuerySelect($query);
+}
+
 function getArticle($id): array|null
 {
     $query = "SELECT * FROM snows WHERE id = " . $id;
@@ -26,14 +33,21 @@ function getArticle($id): array|null
     return executeQuerySelect($query);
 }
 
+function articleExists($code): bool
+{
+    $query = "SELECT code FROM snows WHERE code = '" . $code . "'";
+    require_once 'models/dbConnector.php';
+    return isset(executeQuerySelect($query)[0]);
+}
+
 function deleteArticle($id): void
 {
-    $query = "DELETE FROM snows WHERE id = " . $id;
+    $query = "UPDATE snows SET active = 0 WHERE id = " . $id;
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
 }
 
-function addArticle($values): void
+function addArticle($values, $files = null): void
 {
     $code = $values["code"];
     $brand = $values["brand"];
@@ -44,11 +58,43 @@ function addArticle($values): void
     $price = $values["dailyPrice"];
     $active = $values["active"];
 
-    //if(isset($values["photo"])){ }
+    $photo = "";
 
+    if ($files["photo"]["name"] != "") {
+        $target_dir = "view/content/images/";
+        $filename = basename($files["photo"]["name"]);
+        $target_file = $target_dir . $filename;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        $photo .= "view/content/images/" . $filename;
+
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($files["photo"]["tmp_name"]);
+        }
+
+        move_uploaded_file($files["photo"]["tmp_name"], $target_file);
+    }
     $query =
-        "INSERT INTO snows (code,brand,model,snowLength,qtyAvailable,description,dailyPrice,active) " .
-        "VALUES ('" . $code . "','" . $brand . "','" . $model . "','" . $length . "','" . $qty . "','" . $desc . "','" . $price . "','" . $active . "');";
+        "INSERT INTO snows (code,brand,model,snowLength,qtyAvailable,description,dailyPrice,active,photo) " .
+        "VALUES ('" . $code . "','" . $brand . "','" . $model . "','" . $length . "','" . $qty . "','" . $desc . "','" . $price . "','" . $active . "','" . $photo . "');";
+    require_once 'models/dbConnector.php';
+    executeQueryDeleteOrInsert($query);
+}
+
+function updateArticle($values): void
+{
+    $id = $values["id"];
+
+    $code = $values["code"];
+    $brand = $values["brand"];
+    $model = $values["model"];
+    $length = $values["snowLength"];
+    $qty = $values["qtyAvailable"];
+    $desc = $values["description"];
+    $price = $values["dailyPrice"];
+    $active = $values["active"];
+
+    $query = "UPDATE snows SET code = '" . $code . "', brand = '" . $brand . "', model = '" . $model . "', snowLength = '" . $length . "', qtyAvailable = '" . $qty . "', description = '" . $desc . "', dailyPrice = '" . $price . "', active = '" . $active . "' WHERE id = " . $id;
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
 }

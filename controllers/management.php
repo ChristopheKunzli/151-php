@@ -10,7 +10,7 @@ function management(): void
     $articles = null;
     try {
         require_once 'models/articlesManager.php';
-        $articles = getArticles();
+        $articles = getActiveArticles();
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour afficher les produits" . $ex;
     } finally {
@@ -28,16 +28,41 @@ function delete(): void
     }
 }
 
-function add($post): void
+function update($post)
 {
+    try {
+        require_once 'models/articlesManager.php';
+        updateArticle($post);
+    } catch (ModelDataBaseException $ex) {
+        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour ajouter le produit" . $ex;
+    }
+}
+
+function add($post, $files = null): void
+{
+    if (isset($post["isEdit"])) {
+        require_once 'models/articlesManager.php';
+        $article = getArticle($post["id"])[0];
+        require 'view/addArticle.php';
+        return;
+    }
+
     if (!isset($post["code"])) {
         require 'view/addArticle.php';
         return;
     }
     try {
         require_once 'models/articlesManager.php';
-        addArticle($post);
+        if (!articleExists($post["code"])) {
+            addArticle($post, $files);
+            header('Location: ../index.php?action=gestion');
+        } else {
+            $message = "Il exist déjà un article avec ce code";
+            $article = $post;
+            require 'view/addArticle.php';
+            return;
+        }
     } catch (ModelDataBaseException $ex) {
-        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour supprimmr les produits" . $ex;
+        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour ajouter le produit" . $ex;
     }
 }
