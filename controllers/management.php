@@ -10,7 +10,7 @@ function management(): void
     $articles = null;
     try {
         require_once 'models/articlesManager.php';
-        $articles = getArticles();
+        $articles = getActiveArticles();
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour afficher les produits" . $ex;
     } finally {
