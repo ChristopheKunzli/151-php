@@ -58,15 +58,15 @@ function addArticle($values, $files = null): void
     $price = $values["dailyPrice"];
     $active = $values["active"];
 
-    $photo = "view/content/images/";
+    $photo = "";
 
-    if($files["photo"]["name"] != "") {
+    if ($files["photo"]["name"] != "") {
         $target_dir = "view/content/images/";
         $filename = basename($files["photo"]["name"]);
         $target_file = $target_dir . $filename;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        $photo .= $filename;
+        $photo .= "view/content/images/" . $filename;
 
         if (isset($_POST["submit"])) {
             $check = getimagesize($files["photo"]["tmp_name"]);
