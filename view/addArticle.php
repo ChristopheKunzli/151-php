@@ -7,12 +7,31 @@
  */
 
 $title = "snows - ajout";
+
+function console_log($output, $with_script_tags = true): void
+{
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+        ');';
+    if ($with_script_tags) {
+        $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
+
+console_log($article);
+
 ob_start();
 ?>
     <section id="addForm" class="w-75 centered">
         <h2 class="m-t-32 m-b-32">Nouvel article</h2>
         <h3><?php if (isset($message)) echo $message; ?></h3>
+
+        <?php if ($isEdit) : ?>
+        <form method="post" action="../index.php?action=update">
+        <?php else : ?>
         <form method="post" action="../index.php?action=add">
+        <?php endif; ?>
+            <input type="hidden" name="id" value="<?php if (isset($article['id'])) echo $article['id']; ?>">
             <div class="bo4 of-hidden size15 m-b-20">
                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="code" placeholder="Code"
                        value="<?php if (isset($article['code'])) echo $article['code']; ?>" required>

@@ -66,3 +66,21 @@ function addArticle($values): void
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
 }
+
+function updateArticle($values): void
+{
+    $id = $values["id"];
+
+    $code = $values["code"];
+    $brand = $values["brand"];
+    $model = $values["model"];
+    $length = $values["snowLength"];
+    $qty = $values["qtyAvailable"];
+    $desc = $values["description"];
+    $price = $values["dailyPrice"];
+    $active = $values["active"];
+
+    $query = "UPDATE snows SET code = '" . $code . "', brand = '" . $brand . "', model = '" . $model . "', snowLength = '" . $length . "', qtyAvailable = '" . $qty . "', description = '" . $desc . "', dailyPrice = '" . $price . "', active = '" . $active . "' WHERE id = " . $id;
+    require_once 'models/dbConnector.php';
+    executeQueryDeleteOrInsert($query);
+}

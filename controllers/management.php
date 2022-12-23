@@ -28,10 +28,21 @@ function delete(): void
     }
 }
 
+function update($post)
+{
+    try {
+        require_once 'models/articlesManager.php';
+        updateArticle($post);
+    } catch (ModelDataBaseException $ex) {
+        $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour ajouter le produit" . $ex;
+    }
+}
+
 function add($post, $isEdit = false): void
 {
     if ($isEdit) {
-        $article = getArticle($post["id"]);
+        require_once 'models/articlesManager.php';
+        $article = getArticle($post["id"])[0];
         require 'view/addArticle.php';
         return;
     }
