@@ -60,19 +60,20 @@ function addArticle($values, $files = null): void
 
     $photo = "view/content/images/";
 
-    $target_dir = "view/content/images/";
-    $filename = basename($files["photo"]["name"]);
-    $target_file = $target_dir . $filename;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    if($files["photo"]["name"] != "") {
+        $target_dir = "view/content/images/";
+        $filename = basename($files["photo"]["name"]);
+        $target_file = $target_dir . $filename;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    $photo .= $filename;
+        $photo .= $filename;
 
-    if (isset($_POST["submit"])) {
-        $check = getimagesize($files["photo"]["tmp_name"]);
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($files["photo"]["tmp_name"]);
+        }
+
+        move_uploaded_file($files["photo"]["tmp_name"], $target_file);
     }
-
-    move_uploaded_file($files["photo"]["tmp_name"], $target_file);
-
     $query =
         "INSERT INTO snows (code,brand,model,snowLength,qtyAvailable,description,dailyPrice,active,photo) " .
         "VALUES ('" . $code . "','" . $brand . "','" . $model . "','" . $length . "','" . $qty . "','" . $desc . "','" . $price . "','" . $active . "','" . $photo . "');";
