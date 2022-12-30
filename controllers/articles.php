@@ -23,7 +23,7 @@ function displayArticleDetail(): void
     $article = null;
     try {
         require_once 'models/articlesManager.php';
-        $article = getArticle($_GET["id"])[0];
+        $article = getArticle($_GET["code"])[0];
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes techniques pour afficher le produit" . $ex;
         echo "<h1>".$articleErrorMessage."</h1>";

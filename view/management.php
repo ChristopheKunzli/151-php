@@ -22,6 +22,7 @@ ob_start();
 
     <!-- Content page -->
     <section class="bgwhite p-t-55 p-b-65">
+
         <div class="container">
             <div class="row">
 
@@ -70,11 +71,11 @@ ob_start();
                                                 <td class="column-2"><?= $article['qtyAvailable']; ?></td>
 
                                                 <td class="column-2">
-                                                    <a href="../index.php?action=delete&id=<?= $article['id']; ?>"
+                                                    <a href="../index.php?action=delete&code=<?= $article['code']; ?>"
                                                        class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                                         <img src="view/content/images/icons/bin2.png" alt="delete">
                                                         </button></a><br>
-                                                    <a href="../index.php?action=edit&id=<?= $article['id'] ?>">
+                                                    <a href="../index.php?action=edit&code=<?= $article['code'] ?>">
                                                         <button onclick="updateItem('<?= $article['code']; ?>')"
                                                                 class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                                             <img src="view/content/images/icons/pencil2.png"

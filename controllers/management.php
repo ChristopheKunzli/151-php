@@ -22,7 +22,7 @@ function delete(): void
 {
     try {
         require_once 'models/articlesManager.php';
-        deleteArticle($_GET["id"]);
+        deleteArticle($_GET["code"]);
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour supprimmr les produits" . $ex;
     }
@@ -42,7 +42,7 @@ function add($post, $files = null): void
 {
     if (isset($post["isEdit"])) {
         require_once 'models/articlesManager.php';
-        $article = getArticle($post["id"])[0];
+        $article = getArticle($post["code"])[0];
         require 'view/addArticle.php';
         return;
     }

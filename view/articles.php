@@ -54,7 +54,7 @@ ob_start();
                                 </div>
 
                                 <div class="block2-txt p-t-20">
-                                    <?php echo '<a href="../index.php?action=product-detail&id=' . $article["id"] . '"' ?>
+                                    <?php echo '<a href="../index.php?action=product-detail&code=' . $article["code"] . '"' ?>
 
                                     lass="block2-name dis-block s-text3 p-b-5">
                                     <?php echo $article["model"] ?>

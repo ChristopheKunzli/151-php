@@ -26,9 +26,9 @@ function getActiveArticles(): array|null
     return executeQuerySelect($query);
 }
 
-function getArticle($id): array|null
+function getArticle($code): array|null
 {
-    $query = "SELECT * FROM snows WHERE id = " . $id;
+    $query = "SELECT * FROM snows WHERE code = '" . $code."'";
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }
@@ -40,9 +40,9 @@ function articleExists($code): bool
     return isset(executeQuerySelect($query)[0]);
 }
 
-function deleteArticle($id): void
+function deleteArticle($code): void
 {
-    $query = "UPDATE snows SET active = 0 WHERE id = " . $id;
+    $query = "UPDATE snows SET active = 0 WHERE code = '" . $code."'";
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
 }

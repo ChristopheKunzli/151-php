@@ -37,7 +37,7 @@ if (isset($_GET['action'])) {
             add($_POST, $_FILES);
             break;
         case 'edit':
-            $_POST["id"] = $_GET["id"];
+            $_POST["code"] = $_GET["code"];
             $_POST["isEdit"] = true;
             add($_POST);
             break;
