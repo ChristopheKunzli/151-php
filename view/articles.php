@@ -37,7 +37,13 @@ ob_start();
                             <div class="block2">
                                 <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
 
-                                    <?php echo '<img src="' . $article["photo"] . '" alt="IMG-PRODUCT">' ?>
+                                    <?php if (isset($article["photo"]) && is_file($article['photo'])) : ?>
+                                        <img src="<?= $article['photo']; ?>"
+                                             alt="<?= $article['code']; ?>" alt="IMG-PRODUCT">
+                                    <?php else : ?>
+                                        <img src="view/content/images/no_image_snow_small.png"
+                                             alt="no image" alt="IMG-PRODUCT">
+                                    <?php endif; ?>
                                     <div class="block2-overlay trans-0-4">
                                         <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
                                             <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
