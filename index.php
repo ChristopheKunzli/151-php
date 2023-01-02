@@ -24,6 +24,9 @@ if (isset($_GET['action'])) {
         case 'contact':
             users();
             break;
+        case 'logout':
+            logout();
+            break;
         case 'product':
             displayArticles();
             break;

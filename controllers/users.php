@@ -38,3 +38,13 @@ function login($post): void
         $error = $ex;
     }
 }
+
+function logout(): void
+{
+    //destroy manually both cookies that were created when logging in
+    setcookie("email", "", -2040);
+    setcookie("PHPSESSID", "", -2040);
+
+    session_destroy();
+    header("Location: ../index?action=home");
+}
