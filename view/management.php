@@ -89,7 +89,6 @@ ob_start();
                                     </table>
                                 </div>
                             </div>
-
                         <?php endif; ?>
                 </section>
             </div>

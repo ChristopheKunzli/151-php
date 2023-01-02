@@ -9,13 +9,14 @@
 /**
  * Fetches all users in the database
  * @param $address
- * @return array|null
+ * @param $password
+ * @return bool
  */
-function getUser($address) : array | null
+function userExists($address, $password): bool
 {
-    $query = "SELECT userEmailAddress, userHashPsw, pseudo FROM users WHERE userEmailAddress = '". $address. "'";
+    $query = "SELECT userEmailAddress, userHashPsw, pseudo FROM users WHERE userEmailAddress = '" . $address . "' AND userHashPsw = '" . $password . "'";
 
     require_once 'models/dbConnector.php';
 
-    return executeQuerySelect($query);
+    return count(executeQuerySelect($query)) == 0;
 }
