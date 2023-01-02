@@ -34,23 +34,43 @@ if (isset($_GET['action'])) {
             displayArticleDetail();
             break;
         case 'gestion':
-            management();
+            if (isset($_COOKIE["email"])) {
+                management();
+            } else {
+                header("Location: index.php?action=home");
+            }
             break;
         case 'add':
-            add($_POST, $_FILES);
+            if (isset($_COOKIE["email"])) {
+                add($_POST, $_FILES);
+            } else {
+                header("Location: index.php?action=home");
+            }
             break;
         case 'edit':
-            $_POST["code"] = $_GET["code"];
-            $_POST["isEdit"] = true;
-            add($_POST);
+            if (isset($_COOKIE["email"])) {
+                $_POST["code"] = $_GET["code"];
+                $_POST["isEdit"] = true;
+                add($_POST);
+            } else {
+                header("Location: index.php?action=home");
+            }
             break;
         case 'update':
-            update($_POST);
-            management();
+            if (isset($_COOKIE["email"])) {
+                update($_POST);
+                management();
+            } else {
+                header("Location: index.php?action=home");
+            }
             break;
         case 'delete':
-            delete();
-            management();
+            if (isset($_COOKIE["email"])) {
+                delete();
+                management();
+            } else {
+                header("Location: index.php?action=home");
+            }
             break;
         default:
             lost();
