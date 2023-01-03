@@ -1,22 +1,17 @@
 <?php
 /**
  * @file     userManager.php
- * @brief    File description
+ * @brief    Used to manage users
  * @author   Created by Christophe.KUNZLI
  * @version  09.12.2022
  */
 
-/**
- * Fetches all users in the database
- * @param $address
- * @param $password
- * @return bool
- */
-function userExists($address, $password): bool
+
+function getUser($address): array|null
 {
-    $query = "SELECT userEmailAddress, userHashPsw, pseudo FROM users WHERE userEmailAddress = '" . $address . "' AND userHashPsw = '" . $password . "'";
+    $query = "SELECT userEmailAddress, userHashPsw, isAdmin FROM users WHERE userEmailAddress = '" . $address . "'";
 
     require_once 'models/dbConnector.php';
 
-    return count(executeQuerySelect($query)) == 0;
+    return executeQuerySelect($query)[0];
 }

@@ -81,17 +81,21 @@
                             <a href="../index.php?action=product">Nos snows</a>
                         </li>
 
-                        <?php if (isset($_COOKIE["email"])): ?>
-                        <li>
-                            <a href="../index.php?action=gestion">Gestion</a>
-                        </li>
+                        <?php if (isset($_COOKIE["admin"]) && $_COOKIE["admin"] == 1): ?>
+                            <li>
+                                <a href="../index.php?action=gestion">Gestion</a>
+                            </li>
+                            <li>
+                                <a href="../index.php?action=logout">Logout</a>
+                            </li>
+                        <?php elseif (isset($_COOKIE["email"])) : ?>
                             <li>
                                 <a href="../index.php?action=logout">Logout</a>
                             </li>
                         <?php else: ?>
-                        <li>
-                            <a href="../index.php?action=contact">Login</a>
-                        </li>
+                            <li>
+                                <a href="../index.php?action=contact">Login</a>
+                            </li>
                         <?php endif; ?>
                     </ul>
                 </nav>
@@ -340,10 +344,14 @@
                     <a href="../index.php?action=product">Nos snows</a>
                 </li>
 
-                <?php if (isset($_COOKIE["email"])): ?>
+                <?php if (isset($_COOKIE["admin"]) && $_COOKIE["admin"] == 1): ?>
                     <li class="item-menu-mobile">
                         <a href="../index.php?action=gestion">Gestion</a>
                     </li>
+                    <li class="item-menu-mobile">
+                        <a href="../index.php?action=logout">Logout</a>
+                    </li>
+                <?php elseif (isset($_COOKIE["email"])) : ?>
                     <li class="item-menu-mobile">
                         <a href="../index.php?action=logout">Logout</a>
                     </li>

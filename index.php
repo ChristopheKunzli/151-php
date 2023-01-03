@@ -34,21 +34,21 @@ if (isset($_GET['action'])) {
             displayArticleDetail();
             break;
         case 'gestion':
-            if (isset($_COOKIE["email"])) {
+            if (isset($_COOKIE["email"]) && isset($_COOKIE["admin"])) {
                 management();
             } else {
                 header("Location: index.php?action=home");
             }
             break;
         case 'add':
-            if (isset($_COOKIE["email"])) {
+            if (isset($_COOKIE["email"]) && isset($_COOKIE["admin"])) {
                 add($_POST, $_FILES);
             } else {
                 header("Location: index.php?action=home");
             }
             break;
         case 'edit':
-            if (isset($_COOKIE["email"])) {
+            if (isset($_COOKIE["email"]) && isset($_COOKIE["admin"])) {
                 $_POST["code"] = $_GET["code"];
                 $_POST["isEdit"] = true;
                 add($_POST);
@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
             }
             break;
         case 'update':
-            if (isset($_COOKIE["email"])) {
+            if (isset($_COOKIE["email"]) && isset($_COOKIE["admin"])) {
                 update($_POST);
                 management();
             } else {
@@ -65,7 +65,7 @@ if (isset($_GET['action'])) {
             }
             break;
         case 'delete':
-            if (isset($_COOKIE["email"])) {
+            if (isset($_COOKIE["email"]) && isset($_COOKIE["admin"])) {
                 delete();
                 management();
             } else {
