@@ -15,7 +15,7 @@ ob_start();
         <h3><?php if (isset($message)) echo $message; ?></h3>
 
         <?php if (isset($post["isEdit"])) : ?>
-        <form method="post" action="../index.php?action=update">
+        <form method="post" action="../index.php?action=update" enctype="multipart/form-data">
         <?php else : ?>
         <form method="post" action="../index.php?action=add" enctype="multipart/form-data">
         <?php endif; ?>

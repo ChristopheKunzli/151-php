@@ -28,7 +28,7 @@ function getActiveArticles(): array|null
 
 function getArticle($code): array|null
 {
-    $query = "SELECT * FROM snows WHERE code = '" . $code."'";
+    $query = "SELECT * FROM snows WHERE code = '" . $code . "'";
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }
@@ -42,7 +42,7 @@ function articleExists($code): bool
 
 function deleteArticle($code): void
 {
-    $query = "UPDATE snows SET active = 0 WHERE code = '" . $code."'";
+    $query = "UPDATE snows SET active = 0 WHERE code = '" . $code . "'";
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
 }
@@ -81,10 +81,8 @@ function addArticle($values, $files = null): void
     executeQueryDeleteOrInsert($query);
 }
 
-function updateArticle($values): void
+function updateArticle($values, $files = null): void
 {
-    $id = $values["id"];
-
     $code = $values["code"];
     $brand = $values["brand"];
     $model = $values["model"];
@@ -94,7 +92,30 @@ function updateArticle($values): void
     $price = $values["dailyPrice"];
     $active = $values["active"];
 
-    $query = "UPDATE snows SET code = '" . $code . "', brand = '" . $brand . "', model = '" . $model . "', snowLength = '" . $length . "', qtyAvailable = '" . $qty . "', description = '" . $desc . "', dailyPrice = '" . $price . "', active = '" . $active . "' WHERE id = " . $id;
+    $photo = "";
+
+    console_log($files);
+    console_log($values);
+
+    if ($files["photo"]["name"] != "") {
+        $target_dir = "view/content/images/";
+        $filename = basename($files["photo"]["name"]);
+        $target_file = $target_dir . $filename;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        $photo .= "view/content/images/" . $filename;
+
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($files["photo"]["tmp_name"]);
+        }
+
+        move_uploaded_file($files["photo"]["tmp_name"], $target_file);
+    }
+
+    $query = "UPDATE snows SET code = '" . $code . "', brand = '" . $brand . "', model = '" . $model . "', snowLength = '" . $length . "', qtyAvailable = '" . $qty . "', description = '" . $desc . "', dailyPrice = '" . $price . "', active = '" . $active . "', photo = '" . $photo . "' WHERE code = '" . $code. "'";
+
+    console_log($query);
+
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
 }

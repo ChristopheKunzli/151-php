@@ -58,7 +58,7 @@ if (isset($_GET['action'])) {
             break;
         case 'update':
             if (isset($_COOKIE["email"]) && isset($_COOKIE["admin"])) {
-                update($_POST);
+                update($_POST, $_FILES);
                 management();
             } else {
                 header("Location: index.php?action=home");

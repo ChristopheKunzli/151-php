@@ -28,11 +28,11 @@ function delete(): void
     }
 }
 
-function update($post)
+function update($post, $files)
 {
     try {
         require_once 'models/articlesManager.php';
-        updateArticle($post);
+        updateArticle($post, $files);
     } catch (ModelDataBaseException $ex) {
         $articlesErrorMessage = "Nous rencontrons des problèmes techniques pour ajouter le produit" . $ex;
     }
