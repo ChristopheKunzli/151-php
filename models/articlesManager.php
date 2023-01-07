@@ -60,20 +60,7 @@ function addArticle($values, $files = null): void
 
     $photo = "";
 
-    if ($files["photo"]["name"] != "") {
-        $target_dir = "view/content/images/";
-        $filename = basename($files["photo"]["name"]);
-        $target_file = $target_dir . $filename;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        $photo .= "view/content/images/" . $filename;
-
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($files["photo"]["tmp_name"]);
-        }
-
-        move_uploaded_file($files["photo"]["tmp_name"], $target_file);
-    }
+    $photo = extractPhoto($files["photo"], $photo);
     $query =
         "INSERT INTO snows (code,brand,model,snowLength,qtyAvailable,description,dailyPrice,active,photo) " .
         "VALUES ('" . $code . "','" . $brand . "','" . $model . "','" . $length . "','" . $qty . "','" . $desc . "','" . $price . "','" . $active . "','" . $photo . "');";
@@ -97,25 +84,36 @@ function updateArticle($values, $files = null): void
     console_log($files);
     console_log($values);
 
-    if ($files["photo"]["name"] != "") {
-        $target_dir = "view/content/images/";
-        $filename = basename($files["photo"]["name"]);
-        $target_file = $target_dir . $filename;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $photo = extractPhoto($files["photo"], $photo);
 
-        $photo .= "view/content/images/" . $filename;
-
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($files["photo"]["tmp_name"]);
-        }
-
-        move_uploaded_file($files["photo"]["tmp_name"], $target_file);
-    }
-
-    $query = "UPDATE snows SET code = '" . $code . "', brand = '" . $brand . "', model = '" . $model . "', snowLength = '" . $length . "', qtyAvailable = '" . $qty . "', description = '" . $desc . "', dailyPrice = '" . $price . "', active = '" . $active . "', photo = '" . $photo . "' WHERE code = '" . $code. "'";
+    $query = "UPDATE snows SET code = '" . $code . "', brand = '" . $brand . "', model = '" . $model . "', snowLength = '" . $length . "', qtyAvailable = '" . $qty . "', description = '" . $desc . "', dailyPrice = '" . $price . "', active = '" . $active . "', photo = '" . $photo . "' WHERE code = '" . $code . "'";
 
     console_log($query);
 
     require_once 'models/dbConnector.php';
     executeQueryDeleteOrInsert($query);
+}
+
+/**
+ * @param $photo
+ * @param string $resString
+ * @return string
+ */
+function extractPhoto($photo, string $resString): string
+{
+    if ($photo["name"] != "") {
+        $target_dir = "view/content/images/";
+        $filename = basename($photo["name"]);
+        $target_file = $target_dir . $filename;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        $resString .= "view/content/images/" . $filename;
+
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($photo["tmp_name"]);
+        }
+
+        move_uploaded_file($photo["tmp_name"], $target_file);
+    }
+    return $resString;
 }
